@@ -21,10 +21,8 @@
                     <a class="badge rounded-pill text-bg-success" href="{{route('admin.technologies.show', $technology->slug)}}">{{$technology->name}}</a>
                     @endforeach
                 </div>
-
-
+            @endif
         </div>
-
     </section>
 @endsection
 

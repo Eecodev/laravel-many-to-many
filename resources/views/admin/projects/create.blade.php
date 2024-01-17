@@ -15,14 +15,13 @@
 
     <div class="mb-3">
         <label for="category_id">Select Category</label>
-        <select type="text" class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id"
-            required minlength="3" maxlength="200" value="{{ old('category_id') }}">
+        <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
             <option value="">Select a Category</option>
             @foreach ($categories as $category)
                 <option value="{{$category_id}}" {{old('category_id') == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
             @endforeach
         </select>
-        @error('title')
+        @error('category_id')
             <div class="invalid-feedback">{{ $message }}</div>
         @enderror
     </div>
