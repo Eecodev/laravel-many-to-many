@@ -111,12 +111,12 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        $project->technologies()->detach();
+        //$project->technologies()->detach();
         if ($project->image){
             Storage::delete($project->image);
         }
 
-        $project-delete();
+        $project->delete();
         return to_route('admin.projects.index')->with('message', "$project->title eliminato con successo");
     }
 }

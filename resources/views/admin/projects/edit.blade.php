@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <section class="container">
-        <h1>Create New Project</h1>
-        <form action="{{ route('admin.projects.update') }}" enctype="multipart/form-data" method="POST">
+        <h1>Edit {{$project->title}}</h1>
+        <form action="{{ route('admin.projects.update', $project->slug) }}" enctype="multipart/form-data" method="POST">
         @csrf
      <div class="mb-3">
             <label for="title">Title</label>
@@ -18,7 +18,7 @@
         <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
             <option value="">Select a Category</option>
             @foreach ($categories as $category)
-                <option value="{{$category_id}}" {{old('category_id', $project->category_id) == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
+                <option value="{{$category->id}}" {{old('category_id', $project->category_id) == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
             @endforeach
         </select>
         @error('category_id')

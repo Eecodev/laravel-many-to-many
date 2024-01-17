@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Faker\Generator as Faker;
 use App\Models\Project;
 
@@ -27,16 +28,16 @@ class ProjectSeeder extends Seeder
         }
     }
 
-    // public static function storeimage($img, $name)
-    // {
-    //     $url = $img;
-    //     $contents = file_get_contents($url);
+    public static function storeimage($img, $name)
+    {
+        $url = $img;
+        $contents = file_get_contents($url);
 
 
-    //     $name = Str::slug($name, '-') . '.jpeg';
-    //     $path = 'images/' . $name;
-    //     Storage::put('images/' . $name, $contents);
-    //     return $path;
-    // }
+        $name = Str::slug($name, '-'); //. '.jpeg';
+        $path = 'images/' . $name;
+        Storage::put('images/' . $name, $contents);
+        return $path;
+    }
 
 }

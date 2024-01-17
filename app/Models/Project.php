@@ -12,7 +12,7 @@ class Project extends Model
 
         public function category()
         {
-            return $this->belogsTo(Category::class);
+            return $this->belongsTo(Category::class);
         }
 
         public function technologies()
