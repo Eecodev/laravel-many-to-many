@@ -26,7 +26,8 @@ class StoreProjectRequest extends FormRequest
             'title' => ['required', 'min:3', 'max:200', 'unique:projects'],
             'description' => ['nullable'],
             'url' => ['required'],
-            'category_id' => ['nullable', 'exists:categories,id']
+            'category_id' => ['nullable', 'exists:categories,id'],
+            'technologies' => ['exists:technologies,id']
         ];
     }
 
