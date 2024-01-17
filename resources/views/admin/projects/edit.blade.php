@@ -44,6 +44,28 @@
         @enderror
     </div>
 
+    <div class="mb-3">
+        <div class="form-group">
+            <h6>Select Technologies</h6>
+            @foreach ($technologies as $technology)
+                <div class="form-check @error('technologies') is-invalid @enderror">
+                    @if($errors->any())
+
+                    @else
+                    <input type="checkbox" class="form-check-input" name="technologies[]" value="{{$technology->id}}" {{ $project->technologies->contains($technology->id) ? 'checked' : ''}}>
+                    @endif
+                    <label class="form-check-label">
+
+                        {{$technology->name}}
+                    </label>
+
+                </div>
+            @endforeach
+            @error('technologies')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
     <div class="d-flex">
         <div class="me-3">
             <img id="uploadPreview" width="100" src="https://via.placeholder.com/300x200" alt="">
