@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use Illuminate\Support\Str;
-use App\Models\Category;
 
 
 class CategoryController extends Controller
@@ -84,6 +84,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category-delete();
-        return to_route('admin.categories.index')->with('message', "$category->name eliminato con successo");
+        return to_route('admin.categories.index')->with('message', "$category->name successfully deleted");
     }
 }
